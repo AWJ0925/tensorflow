@@ -24,14 +24,13 @@ model.add(layers.MaxPool2D(pool_size=(2, 2)))  # 池化层
 model.add(layers.Flatten())  # 平展化
 model.add(layers.Dense(32, activation='relu'))  # 全连接层
 model.add(layers.Dense(10, activation='softmax'))  # 分类层
-
-# 训练模型配置
-
+# 训练模型编译
 model.compile(optimizer=keras.optimizers.Adam(),
               # 损失函数多分类使用交叉熵（这里还要看标签是否为one-hot编码），回归问题用均方差
               loss=keras.losses.SparseCategoricalCrossentropy(),
               metrics=['accuracy'])
-model.summary()  # 查看模型
+ # 查看模型
+model.summary() 
 
 # 进行模型训练
 # history = model.fit(x_train, y_train,
